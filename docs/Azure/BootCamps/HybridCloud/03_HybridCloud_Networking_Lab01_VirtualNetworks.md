@@ -1,22 +1,5 @@
 # Lab 1 - Virtual Networks
 
-## Before you Begin
-
-If you are using a Microsoft Azure subscription that was provided to you by Microsoft, you are using what is called sponsored Azure and that subscription is limited to a specific set of Microsoft Azure regions. Please consistently use one of the following locations:
-
-* East US
-* South Central US
-* West Europe
-* Southeast Asia
-* West US 2
-* West Central US
-
-Otherwise you will receive an error in the portal if you select an unsupported region and attempt to build anything in Microsoft Azure.
-
-Additionally, your Azure subscription is limited in the amount of cores that you can provision.  Ensure that you have deleted the following VMs before completing this lab:
-
-* ADConnect2 and ADConnect3
-
 ## Lab Summary
 
 In this lab you are going to create multiple virtual networks each with it's own virtual machine and subnet and then test connectivity across subnets and vnets.
@@ -30,7 +13,7 @@ In this lab you are going to create multiple virtual networks each with it's own
 3. Enter or select the following information, accept the defaults for the remaining settings, and then click **Create**:
     * Name: **vNet1**
     * Address Space: **10.101.0.0/16**
-    * Resource Group: *Create New* **VNets**
+    * Resource Group: *Select existing* **rgp-region-studentx**
     * Location: *Choose a consistent and supported location*
     * Subnet Name: **subnet1**
     * Subnet address range: **10.101.1.0/24**
@@ -41,7 +24,7 @@ Repeat the steps above for vNet2:
 
 * Name: **vNet2**
 * Address Space: **10.102.0.0/16**
-* Resource Group: **VNets**
+* Resource Group: *Select existing* **rgp-region-studentx**
 * Location: *Choose a consistent and supported location*
 * Subnet Name: **subnet2**
 * Subnet address range: **10.102.2.0/24**
@@ -51,7 +34,7 @@ Repeat the steps above for vNet2:
 1. Return to the Azure portal and click the **+Create a Resource** button found on the upper left-hand corner of the Azure portal.
 2. Select **Compute** then select **Virtual machine**.
 3. On the Basics tab complete the following:
-    * Resource Group:  *Create New* **VNets**
+    * Resource Group:  *Select existing* **rgp-region-studentx**
     * Virtual machine name: **VM1**
     * Region: Choose the same region as your other resources
     * Availability options: No infrastructure redundancy required
@@ -62,7 +45,7 @@ Repeat the steps above for vNet2:
     * Confirm Password: `Complex.Password`
     * Public inbound ports: **Allow selected ports**
     * Select inbound ports: **RDP (3389)**
-4. Click **Next:Disks >** and then **Next:Networking >**.
+4. Click **Next:Disks select Standard SSD >** and then **Next:Networking >**.
 5. Select **vNet1** for the Virtual network.
 6. **Review + create** and then **Create**.   After validation passes, monitor your deployment status. It should take less than 10 minutes to spin up the VM.
 
@@ -75,9 +58,9 @@ Repeat the steps above for vNet2:
     `$cred = Get-Credential`
 5. Create the VM (note to use the correct region):
     `New-AzVm
-    -ResourceGroupName "VNets"
+    -ResourceGroupName "rgp-region-studentx"
     -Name "VM2"
-    -Location "EastUS"
+    -Location "same as vNet"
     -VirtualNetworkName "vNet2"
     -SubnetName "Subnet2"
     -SecurityGroupName "VM2-nsg"
