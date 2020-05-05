@@ -71,6 +71,7 @@ Repeat the steps above for vNet2:
 ## Exercise 4 - Validate Your Configuration
 
 You now have two virtuals machines each in their own virtual network and subnet. Let's validate that.
+Check with instructor to see this view.
 
 1. Click on **Network Watcher** from the left hand pane of the Azure Portal.
 2. Under  **Monitoring** choose **Topology**.
