@@ -1,5 +1,5 @@
 # Hybrid Identity Hands-On Lab
-
+xx
 ## Before you Begin
 
 If you are using a Azure subscription that was provided to you by Microsoft, you are limited to a specific set of Microsoft Azure regions that you can use. Please use any of the following otherwise you will receive an  error in the portal if you select an unsupported region and attempt to build anything in Microsoft Azure.
